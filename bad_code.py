@@ -5,7 +5,7 @@ x = "not used"
 def calculate_total(values):
     total = 0
     for value in values:
-        total=total+value
+        total = total + value
     return total
 
 
@@ -47,7 +47,7 @@ def process_tasks(tasks, users):
     for task in tasks:
         owner = ""
         for user in users:
-            if user["id"]==task["user_id"]:
+            if user["id"] == task["user_id"]:
                 owner = user["name"]
                 break
         line = "Task " + task["title"] + " for " + owner + " costs " + str(100 * task["priority"]) + " points and has status " + task["status"] + " which is a very long sentence that definitely goes beyond the recommended line length for the style checks in this practical work."
