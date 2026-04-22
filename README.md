@@ -15,27 +15,13 @@
 - Flask-WTF
 - Bootstrap 5
 
-## Скріншоти зі звіту
-
-<p align="center">
-	<img src="images/photo1.jpg" alt="Фото 1" width="100%">
-</p>
-
-<p align="center">
-	<img src="images/photo2.jpg" alt="Фото 2" width="100%">
-</p>
-
-<p align="center">
-	<img src="images/photo3.jpg" alt="Фото 3" width="100%">
-</p>
-
 ## Структура проєкту
 
 ```text
 brud/
 ├── REPORT.md
 ├── README.md
-├── images/
+├── скріншоти звіту/
 │   ├── photo1.jpg
 │   ├── photo2.jpg
 │   └── photo3.jpg
