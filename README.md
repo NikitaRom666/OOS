@@ -2,9 +2,9 @@
 
 ## Опис
 
-Це простий веб-додаток для задач на Flask. У ньому є реєстрація, вхід в акаунт, додавання задач і їх видалення.
+Даний проєкт являє собою веб-додаток для обліку задач, створений на базі Flask. У ньому реалізовано реєстрацію користувача, вхід у систему, роботу із задачами та захист сторінок для авторизованих користувачів.
 
-Я зробив його як навчальний проєкт, щоб показати роботу з формами, базою даних і шаблонами. Додаток працює на SQLite і має простий інтерфейс.
+Проєкт виконано як навчальну практичну роботу. Для збереження даних використовується SQLite, а інтерфейс побудовано на Jinja2 і Bootstrap 5.
 
 ## Технології
 
@@ -14,23 +14,6 @@
 - Flask-Login
 - Flask-WTF
 - Bootstrap 5
-
-## Як запустити
-
-1. Створіть та активуйте віртуальне середовище.
-2. Встановіть залежності:
-
-```bash
-pip install -r todo_app/requirements.txt
-```
-
-3. Запустіть додаток:
-
-```bash
-python todo_app/app.py
-```
-
-Після першого запуску база даних SQLite створиться автоматично через `db.create_all()`.
 
 ## Скріншоти зі звіту
 
@@ -57,19 +40,19 @@ brud/
 │   ├── photo2.jpg
 │   └── photo3.jpg
 └── todo_app/
-	├── app.py
-	├── config.py
-	├── extensions.py
-	├── forms.py
-	├── models.py
-	├── routes.py
-	├── requirements.txt
-	├── static/
-	│   └── style.css
-	└── templates/
-		├── base.html
-		├── dashboard.html
-		├── index.html
-		├── login.html
-		└── register.html
+		├── app.py
+		├── config.py
+		├── extensions.py
+		├── forms.py
+		├── models.py
+		├── routes.py
+		├── requirements.txt
+		├── static/
+		│   └── style.css
+		└── templates/
+				├── base.html
+				├── dashboard.html
+				├── index.html
+				├── login.html
+				└── register.html
 ```
