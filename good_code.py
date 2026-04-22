@@ -30,7 +30,7 @@ def get_priority_label(priority):
 
 
 def find_user_index(users_by_name, target_name):
-    return users_by_name.get(target_name, -1)
+    return users_by_name.get(target_name)
 
 
 def index_users_by_id(users):

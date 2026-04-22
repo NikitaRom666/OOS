@@ -1,16 +1,16 @@
 bad_code.py:1:0: C0114 Missing module docstring
-bad_code.py:4:0: C0116 Missing function docstring
-bad_code.py:7:4: W0612 Unused variable 'x'
-bad_code.py:13:4: W0612 Unused variable 'duplicate'
-bad_code.py:15:12: C0301 Line too long (116/79 characters)
-bad_code.py:18:12: C0301 Line too long (116/79 characters)
-bad_code.py:33:0: C0116 Missing function docstring
-bad_code.py:36:12: C0200 Consider using enumerate instead of iterating with range and len
-bad_code.py:47:8: C0301 Line too long (270/79 characters)
-bad_code.py:52:0: C0116 Missing function docstring
-bad_code.py:70:0: C0301 Line too long (102/79 characters)
-bad_code.py:72:0: W0612 Unused variable 'unused_global'
-bad_code.py:75:0: R1711 Useless return at end of function
+bad_code.py:5:4: C0116 Missing function docstring
+bad_code.py:8:8: W0612 Unused variable 'x'
+bad_code.py:14:8: W0612 Unused variable 'duplicate'
+bad_code.py:16:12: C0301 Line too long (118/79 characters)
+bad_code.py:19:12: C0301 Line too long (118/79 characters)
+bad_code.py:34:4: C0116 Missing function docstring
+bad_code.py:38:12: C0200 Consider using enumerate instead of iterating with range and len
+bad_code.py:49:8: C0301 Line too long (273/79 characters)
+bad_code.py:53:4: C0116 Missing function docstring
+bad_code.py:71:0: C0301 Line too long (101/79 characters)
+bad_code.py:73:0: W0612 Unused variable 'unused_global'
+bad_code.py:76:0: W0511 Consider using a dictionary instead of linear search here
 Your code has been rated at 4.2/10
 
 good_code.py:

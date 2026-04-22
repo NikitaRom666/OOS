@@ -10,27 +10,27 @@ from bad_code import (
     build_task_report as bad_build_task_report,
     calculate_total as bad_calculate_total,
     find_user_index as bad_find_user_index,
-    get_priority_label as bad_get_priority_label,
     get_sample_tasks as bad_get_sample_tasks,
     get_sample_users as bad_get_sample_users,
+    get_priority_label as bad_get_priority_label,
     process_tasks as bad_process_tasks,
 )
 from good_code import (
     build_task_report as good_build_task_report,
     calculate_total as good_calculate_total,
     find_user_index as good_find_user_index,
-    get_priority_label as good_get_priority_label,
     get_sample_tasks as good_get_sample_tasks,
     get_sample_users as good_get_sample_users,
+    get_priority_label as good_get_priority_label,
     index_users_by_id,
     index_users_by_name,
     process_tasks as good_process_tasks,
 )
 
 
-REPEAT_COUNT = 3000
-PROFILE_REPEAT = 1500
+REPEAT_COUNT = 4000
 NUMBER_DATA = list(range(1, 101))
+PROFILE_REPEAT = 2000
 
 
 def build_workload_payload():
@@ -43,9 +43,7 @@ def build_workload_payload():
     return bad_users, bad_tasks, good_users_by_id, good_users_by_name, good_tasks
 
 
-BAD_USERS, BAD_TASKS, GOOD_USERS_BY_ID, GOOD_USERS_BY_NAME, GOOD_TASKS = (
-    build_workload_payload()
-)
+BAD_USERS, BAD_TASKS, GOOD_USERS_BY_ID, GOOD_USERS_BY_NAME, GOOD_TASKS = build_workload_payload()
 
 
 def bad_workload():
@@ -68,9 +66,9 @@ def measure_time():
     bad_time = timeit.timeit(bad_workload, number=REPEAT_COUNT)
     good_time = timeit.timeit(good_workload, number=REPEAT_COUNT)
     print("TIMEIT RESULTS")
-    print(f"bad_code.py  : {bad_time:.4f} s")
-    print(f"good_code.py : {good_time:.4f} s")
-    print(f"speedup      : {bad_time / good_time:.2f}x")
+    print(f"bad_code.py  -> {bad_time:.4f} s")
+    print(f"good_code.py -> {good_time:.4f} s")
+    print(f"speedup      -> {bad_time / good_time:.2f}x")
     return bad_time, good_time
 
 
@@ -90,30 +88,23 @@ def profile_workload(func, label):
         func()
     profiler.disable()
     stream = io.StringIO()
-    stats = pstats.Stats(profiler, stream=stream).strip_dirs().sort_stats(
-        "cumulative"
-    )
+    stats = pstats.Stats(profiler, stream=stream).strip_dirs().sort_stats("cumulative")
     stats.print_stats(6)
-    print(f"\nCPROFILE: {label}")
+    print(f"\nCProfile: {label}")
     print(stream.getvalue())
 
 
 def main():
     print("=== TIMEIT ===")
-    bad_time, good_time = measure_time()
+    measure_time()
 
     print("=== TRACEMALLOC ===")
-    bad_current, bad_peak = measure_memory(bad_workload, "bad_code")
-    good_current, good_peak = measure_memory(good_workload, "good_code")
+    measure_memory(bad_workload, "bad_code")
+    measure_memory(good_workload, "good_code")
 
     print("=== CPROFILE ===")
     profile_workload(bad_workload, "bad_code")
     profile_workload(good_workload, "good_code")
-
-    print("=== SUMMARY ===")
-    print(f"time delta    : {bad_time - good_time:.4f} s")
-    print(f"memory delta  : {(bad_peak - good_peak) / 1024:.1f} KiB")
-    print(f"final current  : {bad_current / 1024:.1f} KiB vs {good_current / 1024:.1f} KiB")
 
 
 if __name__ == "__main__":
